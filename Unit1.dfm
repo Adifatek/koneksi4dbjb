@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 334
-  Top = 147
+  Left = 205
+  Top = 172
   Width = 708
   Height = 535
   Caption = 'Form1'
@@ -239,18 +239,18 @@ object Form1: TForm1
     ControlsCodePage = cGET_ACP
     UTF8StringsAsWideField = False
     AutoEncodeStrings = False
-    Connected = True
     Port = 3306
     Database = 'db_lsp'
     User = 'root'
     Protocol = 'mysql'
-    LibraryLocation = 'C:\Users\Home-PC\Videos\2023\BAHAN-NGAJAR\Koneksi\libmysql.dll'
+    LibraryLocation = 
+      'C:\Users\Home-PC\Videos\2023\BAHAN-NGAJAR\Koneksi4Dbjb\libmysql.' +
+      'dll'
     Left = 160
     Top = 336
   end
   object ZQuery1: TZQuery
     Connection = ZConnection1
-    Active = True
     SQL.Strings = (
       'select * from kustomer')
     Params = <>
