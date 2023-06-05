@@ -1,7 +1,7 @@
 object Form1: TForm1
-  Left = 193
-  Top = 109
-  Width = 708
+  Left = 229
+  Top = 207
+  Width = 653
   Height = 535
   Caption = 'Form1'
   Color = clBtnFace
@@ -82,7 +82,7 @@ object Form1: TForm1
   object dbgrd1: TDBGrid
     Left = 40
     Top = 296
-    Width = 601
+    Width = 585
     Height = 177
     DataSource = ds1
     TabOrder = 0
@@ -166,7 +166,7 @@ object Form1: TForm1
   object btn1: TButton
     Left = 40
     Top = 208
-    Width = 105
+    Width = 73
     Height = 65
     Caption = 'Baru'
     Font.Charset = DEFAULT_CHARSET
@@ -179,9 +179,9 @@ object Form1: TForm1
     OnClick = btn1Click
   end
   object btn2: TButton
-    Left = 160
+    Left = 120
     Top = 208
-    Width = 105
+    Width = 81
     Height = 65
     Caption = 'Simpan'
     Font.Charset = DEFAULT_CHARSET
@@ -194,9 +194,9 @@ object Form1: TForm1
     OnClick = btn2Click
   end
   object btn3: TButton
-    Left = 280
+    Left = 208
     Top = 208
-    Width = 105
+    Width = 81
     Height = 65
     Caption = 'Edit'
     Font.Charset = DEFAULT_CHARSET
@@ -209,9 +209,9 @@ object Form1: TForm1
     OnClick = btn3Click
   end
   object btn4: TButton
-    Left = 400
+    Left = 296
     Top = 208
-    Width = 105
+    Width = 81
     Height = 65
     Caption = 'Hapus'
     Font.Charset = DEFAULT_CHARSET
@@ -224,9 +224,9 @@ object Form1: TForm1
     OnClick = btn4Click
   end
   object btn5: TButton
-    Left = 520
+    Left = 384
     Top = 208
-    Width = 105
+    Width = 81
     Height = 65
     Caption = 'Batal'
     Font.Charset = DEFAULT_CHARSET
@@ -236,6 +236,20 @@ object Form1: TForm1
     Font.Style = []
     ParentFont = False
     TabOrder = 10
+  end
+  object btn6: TButton
+    Left = 472
+    Top = 208
+    Width = 105
+    Height = 65
+    Caption = 'LAPORAN'
+    Font.Charset = DEFAULT_CHARSET
+    Font.Color = clWindowText
+    Font.Height = -16
+    Font.Name = 'Tahoma'
+    Font.Style = []
+    ParentFont = False
+    TabOrder = 11
   end
   object ZConnection1: TZConnection
     ControlsCodePage = cGET_ACP
