@@ -32,6 +32,7 @@ type
     procedure btn1Click(Sender: TObject);
     procedure btn4Click(Sender: TObject);
     procedure btn3Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -47,14 +48,25 @@ implementation
 
 procedure TForm1.btn2Click(Sender: TObject);
 begin
-ZQuery1.SQL.Clear;
+if edt1.Text = '' then
+begin
+  edt1.SetFocus;
+ ShowMessage('Nama Kustomer wajib Diisi!');
+end else
+if edt2.Text ='' then
+begin
+   edt2.SetFocus;
+ ShowMessage('Nama No Telepon wajib Diisi!');
+end else
+begin
+ZQuery1.SQL.Clear;   //kode simpan
 ZQuery1.SQL.Add('insert into kustomer values(null,"'+edt1.Text+'","'+edt2.Text+'","'+edt3.Text+'","'+edt4.Text+'","'+edt5.Text+'")');
 ZQuery1.ExecSQL ;
-
 
 ZQuery1.SQL.Clear;
 ZQuery1.SQL.Add('select * from kustomer');
 ZQuery1.Open;
+end;
 end;
 
 procedure TForm1.btn1Click(Sender: TObject);
@@ -88,6 +100,15 @@ ZQuery1.SQL.Add('select * from kustomer');
 ZQuery1.Open;
 
 
+end;
+
+procedure TForm1.FormShow(Sender: TObject);
+begin
+edt1.Clear;
+edt2.Clear;
+edt3.Clear;
+edt4.Clear;
+edt5.Clear;
 end;
 
 end.

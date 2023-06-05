@@ -11,6 +11,7 @@ object Form1: TForm1
   Font.Name = 'Tahoma'
   Font.Style = []
   OldCreateOrder = False
+  OnShow = FormShow
   PixelsPerInch = 96
   TextHeight = 13
   object lbl1: TLabel
@@ -239,6 +240,7 @@ object Form1: TForm1
     ControlsCodePage = cGET_ACP
     UTF8StringsAsWideField = False
     AutoEncodeStrings = False
+    Connected = True
     Port = 3306
     Database = 'db_lsp'
     User = 'root'
@@ -251,6 +253,7 @@ object Form1: TForm1
   end
   object ZQuery1: TZQuery
     Connection = ZConnection1
+    Active = True
     SQL.Strings = (
       'select * from kustomer')
     Params = <>
