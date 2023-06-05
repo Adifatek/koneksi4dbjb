@@ -1,6 +1,6 @@
 object Form1: TForm1
-  Left = 205
-  Top = 172
+  Left = 193
+  Top = 109
   Width = 708
   Height = 535
   Caption = 'Form1'
@@ -91,6 +91,7 @@ object Form1: TForm1
     TitleFont.Height = -11
     TitleFont.Name = 'Tahoma'
     TitleFont.Style = []
+    OnCellClick = dbgrd1CellClick
   end
   object edt1: TEdit
     Left = 200

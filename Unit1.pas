@@ -33,6 +33,8 @@ type
     procedure btn4Click(Sender: TObject);
     procedure btn3Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure bersih;
+    procedure dbgrd1CellClick(Column: TColumn); //CTRL + SHIFT + C
   private
     { Private declarations }
   public
@@ -41,6 +43,7 @@ type
 
 var
   Form1: TForm1;
+  id: string;
 
 implementation
 
@@ -48,9 +51,9 @@ implementation
 
 procedure TForm1.btn2Click(Sender: TObject);
 begin
-if edt1.Text = '' then
+if edt1.Text = '' then    // VALIDASI INPUTAN KOSONG
 begin
-  edt1.SetFocus;
+ edt1.SetFocus;
  ShowMessage('Nama Kustomer wajib Diisi!');
 end else
 if edt2.Text ='' then
@@ -58,6 +61,10 @@ begin
    edt2.SetFocus;
  ShowMessage('Nama No Telepon wajib Diisi!');
 end else
+//if ZQuery1.Locate('nmkustomer',1) = edt1.text then //validasi inputan kemiripan
+//begin
+// ShowMessage('Nama yang diinputkan sudah digunakan');
+//end else
 begin
 ZQuery1.SQL.Clear;   //kode simpan
 ZQuery1.SQL.Add('insert into kustomer values(null,"'+edt1.Text+'","'+edt2.Text+'","'+edt3.Text+'","'+edt4.Text+'","'+edt5.Text+'")');
@@ -65,23 +72,20 @@ ZQuery1.ExecSQL ;
 
 ZQuery1.SQL.Clear;
 ZQuery1.SQL.Add('select * from kustomer');
-ZQuery1.Open;
+ZQuery1.Open; 
+bersih;
 end;
 end;
 
 procedure TForm1.btn1Click(Sender: TObject);
 begin
-edt1.Clear;
-edt2.Clear;
-edt3.Clear;
-edt4.Clear;
-edt5.Clear;
+bersih;
 end;
 
 procedure TForm1.btn4Click(Sender: TObject);
 begin
 ZQuery1.SQL.Clear;
-ZQuery1.SQL.Add(' delete from kustomer where idkustomer=4');
+ZQuery1.SQL.Add(' delete from kustomer where idkustomer= "'+id+'"');
 ZQuery1. ExecSQL;
 ZQuery1.SQL.Clear;
 ZQuery1.SQL.Add('select * from kustomer');
@@ -92,23 +96,37 @@ end;
 procedure TForm1.btn3Click(Sender: TObject);
 begin
 ZQuery1.SQL.Clear;
-ZQuery1.SQL.Add('Update kustomer set nmkustomer= "'+edt1.Text+'" where idkustomer=1');
+ZQuery1.SQL.Add('Update kustomer set nmkustomer= "'+edt1.Text+'" where idkustomer="'+id+'"');
 ZQuery1. ExecSQL;
 
 ZQuery1.SQL.Clear;
 ZQuery1.SQL.Add('select * from kustomer');
 ZQuery1.Open;
-
-
+ShowMessage('Data Berhasil Di Edit');
 end;
 
 procedure TForm1.FormShow(Sender: TObject);
+begin
+bersih;
+end;
+
+procedure TForm1.bersih;
 begin
 edt1.Clear;
 edt2.Clear;
 edt3.Clear;
 edt4.Clear;
 edt5.Clear;
+end;
+
+procedure TForm1.dbgrd1CellClick(Column: TColumn);
+begin
+ id:= ZQuery1.Fields[0].AsString;
+edt1.Text := ZQuery1.Fields[1].AsString;
+edt2.Text := ZQuery1.Fields[2].AsString;
+edt3.Text := ZQuery1.Fields[3].AsString;
+edt4.Text := ZQuery1.Fields[4].AsString;
+edt5.Text := ZQuery1.Fields[5].AsString;
 end;
 
 end.
